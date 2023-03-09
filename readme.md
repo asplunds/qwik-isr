@@ -14,7 +14,7 @@ You can use a tool like [crontab.guru](https://crontab.guru/#*/5_*_*_*_*) to sel
 
 ## The how
 
-It's fairly simple but the details are important. The Qwik build script is scheduled in a cronjob however, while the app is building Qwik mangles the `dist` directory. This means for a short period of time between when the app is building, the website will be unavailable. Therefore a trick is utilized; before build, the `dist` folder is copied to a swap folder called `distSwp`. After that the NGINX symlink root is replaced from `/app/dist` to `/app/distSwp`. Following this seamless and instant swap, the app is safely built anew, once finished, the symlinked is swapped back to `/app/dist` and the cycle repeats.
+It's fairly simple but the details are important. The Qwik build script is scheduled in a cronjob however, while the app is building, Qwik mangles the `dist` directory. This means that for a short period of time between when the app is building, the website will be unavailable. Therefore a trick is utilized; before build, the `dist` folder is copied to a swap folder called `distSwp`. After that the NGINX symlink root is replaced from `/app/dist` to `/app/distSwp`. Following this seamless and instant swap, the app is safely built anew, once finished, the symlinked is swapped back to `/app/dist` and the cycle repeats.
 
 ## The why
 
