@@ -7,7 +7,7 @@ The purpose of this build tool is to serve blazing fast Qwik apps 100% staticall
 ## Usage
 
 1. Copy `Dockerfile` and `nginx.conf` and place them in the root of your app/monorepo.
-2. Run `docker build -t my-qwik-app --build-arg loc=exampleApp --build-arg cron="*/6 * * * *" .` (replace "exampleApp" with the path to your Qwik app)
+2. Run `docker build -t my-qwik-app --build-arg loc=exampleApp --build-arg cron="*/5 * * * *" .` (replace "exampleApp" with the path to your Qwik app)
 3. After building start your container with `docker run --name my-qwik-app -p 8080:80 my-qwik-app`
 
 You can use a tool like [crontab.guru](https://crontab.guru/#*/5_*_*_*_*) to select your build interval.
