@@ -1,6 +1,8 @@
 # Qwik Interval Static Regeneration (QISR)
 
-Qwik-ISR Uses Qwik (SSG adapter) to build Qwik web apps on a predetermined interval. Not to be confused with Next ISR. Leverages Docker as a build and container tool, cron for scheduling and NGINX for statically serving the files.
+Qwik-ISR to be confused with Next.js's ISR is a method that uses Qwik's SSG adapter to build Qwik web apps/sites on a predetermined interval. Qwik-ISR leverages Docker as a build/container tool, cron for scheduling and NGINX for statically serving the app.
+
+The purpose of this build tool is to serve blazing fast Qwik apps 100% statically while still being able to update the content using a headless CMS.
 
 ## Usage
 
@@ -12,7 +14,7 @@ You can use a tool like [crontab.guru](https://crontab.guru/#*/5_*_*_*_*) to sel
 
 ## The how
 
-It's fairly simple but the details are important. The Qwik build script is scheduled in a cronjob however, while the app is building Qwik mangles the `dist` directory. This means for a short period of time between when the app is building, the page will be down. Therefore a trick is utilized. Before build, the `dist` folder is copied to a swap folder called `distSwp`. After that the nginx symlink root is replaced from `/app/dist` to `/app/dist2`. Following this seamless and instant swap, the app is safely built anew, once finished, the symlinked is swapped back to `/app/dist` and the cycle repeats.
+It's fairly simple but the details are important. The Qwik build script is scheduled in a cronjob however, while the app is building Qwik mangles the `dist` directory. This means for a short period of time between when the app is building, the website will be unavailable. Therefore a trick is utilized; before build, the `dist` folder is copied to a swap folder called `distSwp`. After that the nginx symlink root is replaced from `/app/dist` to `/app/dist2`. Following this seamless and instant swap, the app is safely built anew, once finished, the symlinked is swapped back to `/app/dist` and the cycle repeats.
 
 ## The why
 
