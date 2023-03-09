@@ -1,6 +1,6 @@
-# Qwik Interval Static Regeneration (QISR)
+# Qwik Interval Static Regeneration (Qwik-ISR)
 
-Qwik-ISR to be confused with Next.js's ISR is a method that uses Qwik's SSG adapter to build Qwik web apps/sites on a predetermined interval. Qwik-ISR leverages Docker as a build/container tool, cron for scheduling and NGINX for statically serving the app.
+Qwik-ISR, not to be confused with [Next.js's ISR](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration), is a method that uses [Qwik's SSG adapter](https://qwik.builder.io/qwikcity/guides/static-site-generation/#static-site-generation-ssg-overview) to build [Qwik](https://qwik.builder.io/) web apps/sites on a predetermined interval. Qwik-ISR leverages Docker as a build/container tool, cron for scheduling and NGINX for statically serving the app.
 
 The purpose of this build tool is to serve blazing fast Qwik apps 100% statically while still being able to update the content using a headless CMS.
 
